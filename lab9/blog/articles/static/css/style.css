@@ -1,0 +1,185 @@
+/* ===== ЛАБОРАТОРНАЯ РАБОТА №9 - ПАРАЛЛАКС ===== */
+/* (строго по методичке) */
+
+/* Основные стили страницы */
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Шапка сайта */
+.header {
+    background: #16a085;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Логотип */
+.logo {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+/* Текстовая область шапки */
+.header-text-area {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.service-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+/* Ссылки авторизации */
+.auth-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.auth-link {
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    background: #1abc9c;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+    background: #16a085;
+    transform: translateY(-2px);
+}
+
+.username {
+    color: white;
+    background: #1abc9c;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Контейнер для иконок параллакса (как в методичке) */
+.icons-for-parallax {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    height: 530px;
+    position: relative;
+}
+
+/* Общие стили для всех иконок (как в методичке) */
+.icons-for-parallax img {
+    position: absolute;
+    top: 0;
+}
+
+/* Первая иконка (передний план) - как в методичке */
+.icon-for-parallax-first {
+    margin-top: 200px;
+    width: 200px;
+    height: auto;
+    z-index: 3;
+}
+
+/* Вторая иконка (средний план) - как в методичке */
+.icon-for-parallax-second {
+    width: 175px;
+    height: auto;
+    margin-top: 100px;
+    margin-left: 80px;
+    z-index: 2;
+}
+
+/* Третья иконка (задний план) - как в методичке */
+.icon-for-parallax-third {
+    width: 150px;
+    height: auto;
+    margin-left: 160px;
+    z-index: 1;
+}
+
+/* Стили для архива статей */
+.archive {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background: #16a085;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.one-post {
+    background: #1abc9c;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.post-title a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
+.article-info {
+    overflow: hidden;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #16a085;
+    border-top: 1px solid #16a085;
+}
+
+.article-author {
+    float: left;
+    width: 50%;
+    font-weight: bold;
+}
+
+.article-created-date {
+    float: right;
+    text-align: right;
+}
+
+.article-text {
+    clear: both;
+    line-height: 1.6;
+}
+
+.btn-create {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.btn-create:hover {
+    background: #16a085;
+}
+
+.no-posts {
+    color: white;
+    text-align: center;
+    padding: 40px;
+}

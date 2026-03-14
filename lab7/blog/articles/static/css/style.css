@@ -1,0 +1,534 @@
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ШАПКА САЙТА ===== */
+.header {
+    background: #16a085;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 240px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.header-text-area {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.service-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для ссылок авторизации в шапке */
+.auth-links-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.username {
+    color: white;
+    font-weight: bold;
+    background: #1abc9c;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.auth-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.auth-link:hover {
+    background: #1abc9c;
+    transform: translateY(-2px);
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.content {
+    flex: 1;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ===== СТИЛИ ДЛЯ АРХИВА СТАТЕЙ (ГЛАВНАЯ) ===== */
+.archive {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Кнопка создания статьи */
+.create-post-link {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.btn-create {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #16a085;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+
+.btn-create:hover {
+    background: #1abc9c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Карточка статьи */
+.one-post {
+    background: #16a085;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.one-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: #1abc9c;
+}
+
+/* Заголовок статьи */
+.post-title {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.post-title a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: #1abc9c;
+    text-decoration: underline;
+}
+
+/* Информация о статье */
+.article-info {
+    overflow: hidden;
+    margin: 15px 0;
+    padding: 15px 0;
+    border-bottom: 2px solid #1abc9c;
+    border-top: 2px solid #1abc9c;
+    background: rgba(26, 188, 156, 0.1);
+}
+
+.article-author {
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ecf0f1;
+}
+
+.article-author::before {
+    content: "✎ ";
+    font-size: 18px;
+}
+
+.article-created-date {
+    width: 50%;
+    float: right;
+    text-align: right;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.article-created-date::before {
+    content: "📅 ";
+}
+
+/* Текст статьи */
+.article-text {
+    clear: both;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #ecf0f1;
+    margin-top: 15px;
+}
+
+/* Сообщение, если нет статей */
+.no-posts {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    padding: 60px 40px;
+    background: #16a085;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.no-posts a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.no-posts a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ОТДЕЛЬНОЙ СТАТЬИ ===== */
+.article-single {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #16a085;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-single h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 15px;
+}
+
+.article-text-full {
+    line-height: 1.9;
+    font-size: 18px;
+    color: #ecf0f1;
+    margin: 30px 0;
+    white-space: pre-wrap;
+}
+
+/* Ссылка назад */
+.back-link {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    background: #1abc9c;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+
+.back-link:hover {
+    background: #16a085;
+    transform: translateX(-5px);
+    border-color: white;
+}
+
+.back-link::before {
+    content: "";
+    font-size: 20px;
+}
+
+/* ===== СТИЛИ ДЛЯ ФОРМ ===== */
+/* Общие стили для форм */
+.post-form, .auth-form {
+    background: #16a085;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.3);
+    background: white;
+}
+
+.form-control.error {
+    border-color: #e74c3c;
+    background: #fff5f5;
+}
+
+textarea.form-control {
+    min-height: 200px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Кнопки форм */
+.btn, .btn-auth {
+    width: 100%;
+    padding: 14px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover, .btn-auth:hover {
+    background: #16a085;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.btn:active, .btn-auth:active {
+    transform: translateY(0);
+}
+
+/* Сообщения об ошибках */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 12px;
+    border-radius: 5px;
+    border-left: 4px solid #e74c3c;
+}
+
+.error-general {
+    background: #e74c3c;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+/* ===== СТИЛИ ДЛЯ СТРАНИЦ АВТОРИЗАЦИИ ===== */
+.auth-page {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+}
+
+.auth-box {
+    background: #16a085;
+    border-radius: 15px;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-box h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 15px;
+}
+
+/* Ссылки под формами */
+.auth-links {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #1abc9c;
+}
+
+.auth-links p {
+    margin: 10px 0;
+    color: white;
+    font-size: 15px;
+}
+
+.auth-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 2px 10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-links a:hover {
+    color: white;
+    background: #1abc9c;
+    text-decoration: none;
+}
+
+/* ===== СТИЛИ ДЛЯ ФОРМЫ СОЗДАНИЯ СТАТЬИ ===== */
+.content h1 {
+    color: white;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 32px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для управления постом */
+.post-management {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Кнопка сворачивания */
+.fold-button {
+    cursor: pointer;
+    background: #1abc9c;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    user-select: none;
+    border: 2px solid transparent;
+}
+
+.fold-button:hover {
+    background: #16a085;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.fold-button:active {
+    transform: translateY(0);
+}
+
+/* Анимация сворачивания/разворачивания */
+.one-post {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.article-info, .article-text {
+    transition: all 0.3s ease;
+}
+
+.debug-panel button {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.debug-panel button:hover {
+    background: #16a085;
+    transform: translateY(-2px);
+    border-color: white;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.highlighted {
+    animation: pulse 1s ease;
+}

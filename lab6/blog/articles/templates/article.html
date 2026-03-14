@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body_class %}article{% endblock %}
+
+{% block content %}
+<div class="article-single">
+    <h1>{{ post.title }}</h1>
+    <div class="article-info">
+        <div class="article-author">{{ post.author.username }}</div>
+        <div class="article-created-date">{{ post.created_date }}</div>
+    </div>
+    <div class="article-text-full">
+        {{ post.text|linebreaks }}
+    </div>
+    <a href="{% url 'archive' %}" class="back-link">← Все записи</a>
+</div>
+{% endblock %}

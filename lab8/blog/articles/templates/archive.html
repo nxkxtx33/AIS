@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Архив статей{% endblock %}
+
+{% block body_class %}archive{% endblock %}
+
+{% block content %}
+<div class="archive">
+    {% if user.is_authenticated %}
+        <div class="create-post-link">
+            <a href="{% url 'create_post' %}" class="btn-create">Написать статью</a>
+        </div>
+    {% endif %}
+     
+    {% for post in posts %}
+        <div class="one-post">
+            <div class="post-management">
+                <h2 class="post-title">
+                    <a href="{% url 'get_article' post.id %}">{{ post.title }}</a>
+                </h2>
+                <p class="fold-button">Свернуть</p>
+            </div>
+            
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            
+            <p class="article-text">{{ post.get_excerpt }}</p>
+            
+        </div>
+    {% empty %}
+        <div class="no-posts">
+            <p>Пока нет статей.</p>
+            {% if user.is_authenticated %}
+                <p><a href="{% url 'create_post' %}">Напишите первую статью!</a></p>
+            {% else %}
+                <p><a href="{% url 'login' %}">Войдите</a> или 
+                   <a href="{% url 'register' %}">зарегистрируйтесь</a>, чтобы создать статью.</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Дополнительный JavaScript для демонстрации
+    console.log("Страница архива загружена");
+    
+    // Демонстрация работы с DOM через JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM готов (из шаблона)");
+        ;
+    });
+</script>
+{% endblock %}

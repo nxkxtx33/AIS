@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="auth-page">
+    <div class="header">
+        <img src="{% static 'img/dpb-logo.png' %}" alt="Логотип">
+    </div>
+    
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Регистрация</h1>
+            
+            <form method="POST" class="auth-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" 
+                           id="username" 
+                           name="username" 
+                           value="{{ username|default:'' }}" 
+                           placeholder="Введите имя пользователя"
+                           class="form-control {% if errors.username %}error{% endif %}">
+                    {% if errors.username %}
+                        <div class="error-message">{{ errors.username }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           value="{{ email|default:'' }}" 
+                           placeholder="Введите email"
+                           class="form-control {% if errors.email %}error{% endif %}">
+                    {% if errors.email %}
+                        <div class="error-message">{{ errors.email }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" 
+                           id="password" 
+                           name="password" 
+                           placeholder="Введите пароль"
+                           class="form-control {% if errors.password %}error{% endif %}">
+                    {% if errors.password %}
+                        <div class="error-message">{{ errors.password }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="password_confirm">Подтверждение пароля:</label>
+                    <input type="password" 
+                           id="password_confirm" 
+                           name="password_confirm" 
+                           placeholder="Повторите пароль"
+                           class="form-control {% if errors.password_confirm %}error{% endif %}">
+                    {% if errors.password_confirm %}
+                        <div class="error-message">{{ errors.password_confirm }}</div>
+                    {% endif %}
+                </div>
+                
+                {% if errors.general %}
+                    <div class="error-general">{{ errors.general }}</div>
+                {% endif %}
+                
+                <button type="submit" class="btn-auth">Зарегистрироваться</button>
+            </form>
+            
+            <div class="auth-links">
+                <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войдите</a></p>
+                <p><a href="{% url 'archive' %}">Вернуться на главную</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

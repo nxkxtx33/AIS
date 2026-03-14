@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="auth-page">
+    <div class="header">
+        <img src="{% static 'img/dpb-logo.png' %}" alt="Логотип">
+    </div>
+    
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Вход в систему</h1>
+            
+            <form method="POST" class="auth-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" 
+                           id="username" 
+                           name="username" 
+                           value="{{ username|default:'' }}" 
+                           placeholder="Введите имя пользователя"
+                           class="form-control {% if error %}error{% endif %}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" 
+                           id="password" 
+                           name="password" 
+                           placeholder="Введите пароль"
+                           class="form-control {% if error %}error{% endif %}">
+                </div>
+                
+                {% if error %}
+                    <div class="error-message">{{ error }}</div>
+                {% endif %}
+                
+                <button type="submit" class="btn-auth">Войти</button>
+            </form>
+            
+            <div class="auth-links">
+                <p>Нет аккаунта? <a href="{% url 'register' %}">Зарегистрируйтесь</a></p>
+                <p><a href="{% url 'archive' %}">Вернуться на главную</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

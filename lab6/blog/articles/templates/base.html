@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <header class="header">
+        <div class="header-container">
+            <img class="logo" src="{% static 'img/dpb-logo.png' %}" alt="Логотип">
+            <div class="header-text-area">
+                <div class="auth-links-header">
+                    {% if user.is_authenticated %}
+                        <span class="username">{{ user.username }}</span>
+                        <a href="{% url 'logout' %}" class="auth-link">Выйти</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="auth-link">Регистрация</a>
+                        <a href="{% url 'login' %}" class="auth-link">Вход</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

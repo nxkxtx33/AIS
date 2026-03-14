@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Архив статей{% endblock %}
+
+{% block content %}
+<div class="archive">
+    {% if user.is_authenticated %}
+        <div class="create-post-link">
+            <a href="{% url 'create_post' %}" class="btn-create">Написать статью</a>
+        </div>
+    {% endif %}
+    
+    {% for post in posts %}
+        <div class="one-post">
+            <h2 class="post-title">
+                <a href="{% url 'get_article' post.id %}">{{ post.title }}</a>
+            </h2>
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+    {% empty %}
+        <p class="no-posts">Пока нет статей</p>
+    {% endfor %}
+</div>
+{% endblock %}
